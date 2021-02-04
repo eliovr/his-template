@@ -1,0 +1,212 @@
+\documentclass[english]{his-thesis}
+
+% Import user's metadata such as title, name, ISBN, ...
+\usepackage{hismetadata}
+\input{metadata}
+% Import functionality for a purple title page
+\usepackage{histitlepage}
+% Import functionality to set bibliography
+\usepackage{hisbibliography}
+% Some example bibliography
+\addbibresource{bibliography.bib}
+% Import functionality for text formatting
+\usepackage{histextformatting}
+% Import functionality for "own publications" page
+\usepackage{hisownpublications}
+
+\usepackage{csquotes}
+\usepackage{ragged2e}
+\usepackage{mathtools}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{makecell}
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage[shortlabels]{enumitem}
+\usepackage{booktabs}
+\usepackage{array, multirow}
+\usepackage{amsmath}
+\usepackage[acronym]{glossaries}
+\usepackage{geometry}
+\usepackage{xcolor}
+
+% elio: remove header and footer from empty pages.
+\usepackage{emptypage}
+% elio: a bit more top and bottom paddings in tables.
+\renewcommand{\arraystretch}{1.3}
+
+% elio: don't remember what this was for, but pretty sure it's needed.
+\preto\fullcite{\AtNextCite{\defcounter{maxnames}{99}}}
+
+\renewcommand{\glossarysection}[2][]{}
+
+\makeglossaries
+\input{sections/acronyms}
+
+
+\begin{document}
+% set default font to Georgia 9.5pt
+\fontgeorgia{9.5}{11}
+
+\maketitle
+
+\cleardoublepage
+\pagenumbering{roman}% Switch to Roman page numbers
+\setcounter{page}{1}% Start page numbers from 'i' (Roman 1)
+\pagestyle{headings}
+
+% ====================================
+% elio: Roman numbering and no headings
+\frontmatter
+
+\chapter*{Abstract}
+\input{sections/0-abstract}
+
+% -----------------
+
+\chapter*{Sammanfattning}
+\input{sections/0-sammanfattning}
+
+% -----------------
+
+\chapter*{Acknowledgements}
+\input{sections/acknowledgements}
+
+% -----------------
+
+\chapter*{Publications}
+\label{sec:publications-list}
+\input{sections/publications-list}
+
+% -----------------
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+% -----------------
+
+\chapter*{Acronyms}
+\printglossary[type=\acronymtype, nonumberlist]
+
+
+% ====================================
+
+
+\cleardoublepage
+\pagenumbering{arabic}% Switch to Arabic page numbers
+\setcounter{page}{1}% Start page numbers from '1'
+\pagestyle{headings}
+
+
+% ====================================
+
+
+\part*{Introduction}
+\label{part:introduction-method}
+\mainmatter % elio: arabic numbering and headings.
+
+\chapter{INTRODUCTION}
+\label{ch:introduction}
+\input{sections/1-introduction}
+
+
+% ====================================
+
+
+\part*{Frame of Reference}
+\label{part:frame-of-reference}
+
+\chapter{FRAME OF REFERENCE}
+\label{ch:baground}
+\input{sections/3-background}
+
+
+% ====================================
+
+
+\part*{Research Methods}
+\label{part:method}
+
+\chapter{RESEARCH METHODS}
+\label{ch:method}
+\input{sections/2-method}
+
+
+% ====================================
+
+
+\part*{Main Contributions}
+\label{part:contributions}
+
+\chapter{MAIN CONTRIBUTIONS}
+\label{ch:contributions}
+\input{sections/4-contributions}
+
+
+% ====================================
+
+
+\part*{Summary of Publications}
+\label{part:summary-publications}
+
+\chapter{SUMMARY OF PUBLICATIONS}
+\label{ch:publications}
+\input{sections/5-publications}
+
+
+% ====================================
+
+
+\part*{Discussion}
+\label{part:discussion}
+
+\chapter{DISCUSSION}
+\label{ch:discussion}
+\input{sections/6-discussion}
+
+
+% ====================================
+
+
+\part*{Closing Remarks}
+\label{part:closing-remarks}
+
+\chapter{CLOSING REMARKS}
+\label{ch:conclusions}
+\input{sections/7-conclusions}
+
+
+% ====================================
+
+
+% elio: add a bit of space between references.
+\setlength\bibitemsep{0.5\baselineskip}
+% from package 'hisbibliography'
+\listofreferences
+
+
+% ====================================
+
+
+\begin{fullarticles}
+  % elio: added the last parameter to show paper number before its title.
+  \fullarticle[scale=.8,trim={0mm 5mm 0mm 5mm},clip=true,pages=-]{ventocilla2017}{publications/paper1.pdf}{Paper I}
+
+  \fullarticle[scale=.72,trim={0mm 5mm 0mm 5mm},clip=true,pages=-]{ventocilla2018}{publications/paper2.pdf}{Paper II}
+\end{fullarticles}
+
+
+% ====================================
+
+% elio: you can also use \dissertationlist, but you need to fill in the
+%   dissertation-series.bib file, and I was lazy to do so.
+\part*{Publications in the Dissertation Series}
+\chapter*{PUBLICATIONS IN THE DISSERTATION SERIES}
+\addcontentsline{toc}{chapter}{PUBLICATIONS IN THE DISSERTATION SERIES}
+\input{sections/series_publications}
+
+
+
+\end{document}
