@@ -1,4 +1,4 @@
-The official templates (Latex and Word) are found [here](https://www.his.se/forskning/utbildning-pa-forskarniva/avhandlingsmallar/).
+This is a (more or less) mended version of the official Latex template found [here](https://www.his.se/forskning/utbildning-pa-forskarniva/avhandlingsmallar/).
 
 ## Requirements
 - [TexLive](https://tug.org/texlive/).
