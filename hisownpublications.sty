@@ -86,11 +86,12 @@
 }
 }%
 
-% \newenvironment{fullarticles}[1][Previously Published Articles]{%
 \newenvironment{fullarticles}[1][INCLUDED PUBLICATIONS]{%
 \markboth{}{}% no page header
 \cleardoublepage%
-\addcontentsline{toc}{part}{#1}% part-like line in ToC, but does not appear in main text body
+% elio: jump one part so that this chapter's bookmark won't be under References.
+\par\refstepcounter{part}
+\addcontentsline{toc}{chapter}{#1}% part-like line in ToC, but does not appear in main text body
 }{%
 \cleardoublepage%
 }

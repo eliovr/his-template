@@ -133,7 +133,9 @@
 \newcommand{\listofreferences}{%
 \part*{\refname}% List of references is an unnumbered Part
 \chapter*{\MakeUppercase{\refname}}% elio: add title to the first page of references.
-\addcontentsline{toc}{part}{\uppercase{\refname}}% manually add this unnumbered Part to ToC (not automatically as it is the star'ed version)
+% elio: add chapter reference to the table of contents (instead of part).
+% Hard-coded the name because \uppercase does not seem to work.
+\addcontentsline{toc}{chapter}{REFERENCES}
 \markboth{}{\MakeUppercase{\refname}}% fix headings (odd pages 'References', even pages empty)
 \begingroup%
 \defbibheading{subbibliography}{%

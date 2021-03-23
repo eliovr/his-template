@@ -12,7 +12,7 @@ latexmk -pdflatex=lualatex -pdf example-thesis.tex
 ```bash
 latexmk -c
 ```
-- Make glossary (or this one you need to first compile, make the glossary, and then compile again):
+- Make glossary (for this one you need to first compile, call the command below, and then compile again):
 ```bash
 makeglossaries example-thesis
 ```
@@ -21,3 +21,17 @@ makeglossaries example-thesis
 ```bash
 sudo apt install ttf-mscorefonts-installer
 ```
+
+- Install TexLive packages:
+```bash
+tlmgr install <package name>
+```
+
+## Notes
+
+- Remove the extra margins and the cutting marks by adding `final` to the document class options:
+```latex
+\documentclass[english,final]{his-thesis}
+```
+
+- Change the colors of the pages separating parts in `hismetadata.sty`.
